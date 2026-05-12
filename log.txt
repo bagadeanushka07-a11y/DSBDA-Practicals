@@ -1,0 +1,45 @@
+import java.io.*;
+import java.util.*;
+
+public class log_Analysis {
+
+    public static void main(String[] args) throws Exception {
+
+        BufferedReader br = new BufferedReader(new FileReader("log.txt"));
+
+        HashMap<String, Integer> map = new HashMap<>();
+
+        String line;
+
+        while ((line = br.readLine()) != null) {
+
+            String[] words = line.split(" ");
+
+            String logType = words[0];
+
+            if (map.containsKey(logType)) {
+                map.put(logType, map.get(logType) + 1);
+            } else {
+                map.put(logType, 1);
+            }
+        }
+
+        br.close();
+
+        System.out.println("Log Count:");
+
+        for (String key : map.keySet()) {
+            System.out.println(key + " : " + map.get(key));
+        }
+    }
+}
+
+log.txt
+INFO System started
+ERROR Disk failure
+WARNING Memory low
+INFO User login
+ERROR Network issue
+INFO Shutdown initiated
+
+This program performs log file analysis using Java. It reads a log file line by line using BufferedReader. Each line is split into words, and the first word is considered the log type such as INFO, ERROR, or WARNING. A HashMap is used to store log types as keys and their frequencies as values. If a log type already exists in the map, its count is incremented; otherwise, it is added with count 1. Finally, the program prints the total count of each log type. This logic is similar to MapReduce where mapping extracts log levels and reducing aggregates their counts.
