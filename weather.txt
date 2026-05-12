@@ -45,3 +45,4 @@ Day2 32 22 12
 Day3 28 18 8
 Day4 35 25 15
 Day5 31 21 11
+In this practical, I created a Java program to read weather data from a text file. Each line contains day-wise temperature, dew point, and wind speed values. I used BufferedReader to read the file line by line and split each line into individual values using space separation. Then I converted string values into numeric form and calculated the sum of each parameter. Finally, I computed the average by dividing total sum by number of records and displayed the results.
